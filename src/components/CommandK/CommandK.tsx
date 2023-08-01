@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import Modal from '../Modal/Modal'
-import Button from '../Button/Button'
+import Modal, { ModalSize } from '../Modal/Modal'
+import Button, { ButtonSize } from '../Button/Button'
 
-interface ButtonType {
-  key?: string
-  size?: string
+export interface CommandKProps {
+  keyLetter?: string
+  buttonSize?: ButtonSize
+  modalSize?: ModalSize
+  username?: string
 }
 
-const CommandK = (props: ButtonType) => {
-  const [isOpen, setIsOpen] = useState(false)
+const CommandK = (props: CommandKProps) => {
+  const [isOpen, setIsOpen] = useState(true)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -32,17 +34,18 @@ const CommandK = (props: ButtonType) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} toggle={() => setIsOpen(false)}>
-        .
-      </Modal>
-      <Button size={props.size} onClick={() => setIsOpen(true)} />
+      {isOpen && (
+        <Modal size={props.modalSize} isOpen={isOpen} username={props.username} toggle={() => setIsOpen(false)} />
+      )}
+      <Button size={props.buttonSize} keyLetter={props.keyLetter} onClick={() => setIsOpen(true)} />
     </>
   )
 }
 
 CommandK.defaultProps = {
-  key: 'K',
-  size: 'medium',
+  keyLetter: 'K',
+  buttonSize: 'medium' as ButtonSize,
+  username: 'home',
 }
 
 export default CommandK

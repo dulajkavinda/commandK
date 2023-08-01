@@ -1,20 +1,48 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Button from './Button'
 
-export default {
+const meta = {
   title: 'Button',
   component: Button,
-} as ComponentMeta<typeof Button>
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {},
+} satisfies Meta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export default meta
 
-export const Primary = Template.bind({})
-Primary.args = {
-  label: 'Primary',
+type Story = StoryObj<typeof meta>
+
+export const Small: Story = {
+  args: {
+    keyLetter: 'K',
+    size: 'small',
+  },
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Secondary',
+export const Medium: Story = {
+  args: {
+    keyLetter: 'B',
+    size: 'medium',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    keyLetter: 'K',
+    size: 'large',
+  },
+}
+
+export const Custom: Story = {
+  args: {
+    keyLetter: 'B',
+    size: 'medium',
+    styles: {
+      backgroundColor: 'white',
+      color: 'black',
+    },
+  },
 }

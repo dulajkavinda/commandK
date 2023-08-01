@@ -1,13 +1,29 @@
 import React from 'react'
+import classNames from 'classnames'
 import './Button.css'
 
-interface ButtonType {
-  key?: string
-  size?: string
+export type ButtonSize = 'small' | 'medium' | 'large'
+
+export interface ButtonType {
+  keyLetter?: string
+  size?: ButtonSize
+  styles?: React.CSSProperties
   onClick?: () => void
 }
 
 const Button = (props: ButtonType) => {
+  const btnClass = classNames('search-bar', {
+    [`search-bar-${props.size}`]: props.size,
+  })
+
+  const iconClass = classNames('search-bar-icon', {
+    [`search-bar-icon-${props.size}`]: props.size,
+  })
+
+  const keyClass = classNames('search-bar-key', {
+    [`search-bar-key-${props.size}`]: props.size,
+  })
+
   return (
     <>
       <button
@@ -15,24 +31,24 @@ const Button = (props: ButtonType) => {
         type='button'
         onClick={() => {
           if (props.onClick) {
-            console.log('props.onClick')
             props.onClick()
           }
         }}
-        className='search-bar'
+        className={btnClass}
+        style={props.styles}
       >
-        <div className='search-bar-icon'>
+        <div className={iconClass}>
           <span>Command +</span>
         </div>
-        <div className='search-bar-key'>{props.key}</div>
+        <div className={keyClass}>{props.keyLetter?.toUpperCase()}</div>
       </button>
     </>
   )
 }
 
 Button.defaultProps = {
-  key: 'K',
-  size: 'medium',
+  keyLetter: 'K',
+  size: 'medium' as ButtonSize,
 }
 
 export default Button

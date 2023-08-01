@@ -1,20 +1,40 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import CommandK from './CommandK'
 
-export default {
+const meta = {
   title: 'CommandK',
   component: CommandK,
-} as ComponentMeta<typeof CommandK>
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {},
+} satisfies Meta<typeof CommandK>
 
-const Template: ComponentStory<typeof CommandK> = (args) => <CommandK {...args} />
+export default meta
 
-export const Primary = Template.bind({})
-Primary.args = {
-  label: 'Primary',
+type Story = StoryObj<typeof meta>
+
+export const Small: Story = {
+  args: {
+    keyLetter: 'K',
+    modalSize: 'small',
+    buttonSize: 'small',
+  },
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Secondary',
+export const Medium: Story = {
+  args: {
+    keyLetter: 'K',
+    modalSize: 'medium',
+    buttonSize: 'medium',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    keyLetter: 'K',
+    modalSize: 'large',
+    buttonSize: 'large',
+  },
 }

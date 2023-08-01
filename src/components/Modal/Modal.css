@@ -1,0 +1,58 @@
+@keyframes fadein {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bg-color {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(#1e262f, 0.6);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-overlay {
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bg-color 0.1s;
+}
+
+.modal-box {
+  display: block;
+  background: #1e262f;
+  width: 70%;
+  height: 70%;
+  padding: 1rem;
+  border-radius: 1rem;
+  animation: fadein 0.2s;
+}
+
+.modal-box.fade-out {
+  animation: fadeout 0.3s;
+}

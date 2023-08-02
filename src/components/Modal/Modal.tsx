@@ -138,11 +138,11 @@ const Modal = (props: ModalType) => {
                             key={trackItemindex}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter') {
-                                window.open(subItem.url)
+                                window.location.href = `${subItem.url}`
                               }
                             }}
                             onClick={() => {
-                              window.open(subItem.url)
+                              window.location.href = `${subItem.url}`
                             }}
                             className={classNames('modal-box-body-items', {
                               [`modal-box-body-items-${listItemIndex + 1}`]: true,

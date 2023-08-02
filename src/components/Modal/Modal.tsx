@@ -97,6 +97,7 @@ const Modal = (props: ModalType) => {
     <>
       {props.isOpen && (
         <div
+          data-testid='modal-overlay'
           className='modal-overlay'
           onClick={() => {
             props.toggle()
@@ -104,7 +105,7 @@ const Modal = (props: ModalType) => {
             document.body.style.overflow = ''
           }}
         >
-          <div onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
+          <div data-testid='modal' onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
             <div className='modal-box-header'>
               <div className='modal-box-header-search'>
                 <div className='modal-box-header-search-left'>
@@ -113,6 +114,7 @@ const Modal = (props: ModalType) => {
                     <span className='modal-box-header-search-username'>{props.username}</span>
                   </div>
                   <input
+                    data-testid='search-input'
                     onChange={(e) => {
                       filterItems(props.data, e.target.value)
                     }}
@@ -129,12 +131,19 @@ const Modal = (props: ModalType) => {
                 </div>
                 <div className='modal-box-header-search-right'>
                   <div className='modal-box-header-search-right-nav'>
+                    {props.size !== 'small' && (
+                      <span data-testid='press-text' className='modal-box-header-search-right-text-start'>
+                        Press
+                      </span>
+                    )}
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>
-                    <span className='modal-box-header-search-right-text'>to navigate</span>
+                    <span className='modal-box-header-search-right-text'>to Navigate</span>
                   </div>
-                  <div className='modal-box-header-search-results'>{items.length} Results</div>
+                  <div className='modal-box-header-search-results'>
+                    {items.length === 1 ? `${items.length} Result` : `${items.length} Results`}
+                  </div>
                 </div>
               </div>
             </div>
@@ -168,6 +177,7 @@ const Modal = (props: ModalType) => {
                               <div className='modal-box-body-items-title'>{subItem.title}</div>
                             </div>
                             <div className='modal-box-body-items-goto'>
+                              <span className='modal-box-body-items-goto-text-start'>Press</span>
                               <div className='modal-box-body-items-goto-icon'>
                                 <EnterKeyIcon />
                               </div>
@@ -190,6 +200,9 @@ const Modal = (props: ModalType) => {
 Modal.defaultProps = {
   size: 'medium' as ModalSize,
   data: [],
+  isOpen: false,
+  toggle: () => {},
+  username: 'home',
 }
 
 export default Modal

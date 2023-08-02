@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import CommandK from './CommandK'
-import { Group } from '../Modal/Modal.types'
+import Modal from './Modal'
+import { Group } from './Modal.types'
 
 const meta = {
-  title: 'CommandK',
-  component: CommandK,
+  title: 'Modal',
+  component: Modal,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof CommandK>
+} satisfies Meta<typeof Modal>
 
 export default meta
 
@@ -74,30 +74,30 @@ const listA: Group[] = [
 
 export const Small: Story = {
   args: {
-    keyLetter: 'K',
-    modalSize: 'small',
-    buttonSize: 'small',
     data: listA,
+    isOpen: true,
+    toggle: () => {},
+    username: 'home',
+    size: 'small',
   },
 }
 
 export const Medium: Story = {
   args: {
-    keyLetter: 'K',
-    modalSize: 'medium',
-    buttonSize: 'medium',
     data: listA,
-    customStyles: {
-      opacity: 0.9,
-    },
+    isOpen: true,
+    toggle: () => {},
+    username: 'home',
+    size: 'medium',
   },
 }
 
 export const Large: Story = {
   args: {
-    keyLetter: 'K',
-    modalSize: 'large',
-    buttonSize: 'large',
     data: listA,
+    isOpen: true,
+    toggle: () => {},
+    username: 'home',
+    size: 'large',
   },
 }

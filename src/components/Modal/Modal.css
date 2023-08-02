@@ -162,6 +162,7 @@
 
 .modal-box-body-items:hover {
   opacity: 0.8;
+  border: 1px dashed #687585;
   animation-duration: 1s;
 }
 
@@ -182,15 +183,18 @@
 
 .modal-box-body-items-goto {
   display: flex;
-  align-items: center;
+
   font-size: 0.9em;
   font-weight: 600;
   color: #687585;
 }
 
 .modal-box-body-items-goto-icon {
-  margin-right: 8px;
-  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.modal-box-body-items-goto-text-start {
+  margin-right: 5px;
 }
 
 .modal-box-body-items:not(:focus) .modal-box-body-items-goto {
@@ -211,13 +215,20 @@
 }
 
 .modal-box-header-search-right-icon {
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 .modal-box-header-search-right-text {
   font-size: 1em;
   font-weight: 600;
   color: #687585;
+}
+
+.modal-box-header-search-right-text-start {
+  font-size: 1em;
+  font-weight: 600;
+  color: #687585;
+  margin-right: 7px;
 }
 
 @keyframes fadein {

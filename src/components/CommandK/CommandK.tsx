@@ -25,6 +25,11 @@ const CommandK = (props: CommandKProps) => {
 
     document.addEventListener('keydown', handleKeyDown)
 
+    // prevents scrolling when modal is open
+    if (isOpen && typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'hidden'
+    }
+
     if (!isOpen) {
       return () => {
         document.removeEventListener('keydown', handleKeyDown)

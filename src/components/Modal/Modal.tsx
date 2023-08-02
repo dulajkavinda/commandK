@@ -96,7 +96,14 @@ const Modal = (props: ModalType) => {
   return (
     <>
       {props.isOpen && (
-        <div className='modal-overlay' onClick={props.toggle}>
+        <div
+          className='modal-overlay'
+          onClick={() => {
+            props.toggle()
+            // enable scrolling when modal is closed
+            document.body.style.overflow = ''
+          }}
+        >
           <div onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
             <div className='modal-box-header'>
               <div className='modal-box-header-search'>

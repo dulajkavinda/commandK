@@ -129,10 +129,11 @@ const Modal = (props: ModalType) => {
                 </div>
                 <div className='modal-box-header-search-right'>
                   <div className='modal-box-header-search-right-nav'>
+                    <span className='modal-box-header-search-right-text-start'>Press</span>
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>
-                    <span className='modal-box-header-search-right-text'>to navigate</span>
+                    <span className='modal-box-header-search-right-text'>to Navigate</span>
                   </div>
                   <div className='modal-box-header-search-results'>{items.length} Results</div>
                 </div>
@@ -168,6 +169,7 @@ const Modal = (props: ModalType) => {
                               <div className='modal-box-body-items-title'>{subItem.title}</div>
                             </div>
                             <div className='modal-box-body-items-goto'>
+                              <span className='modal-box-body-items-goto-text-start'>Press</span>
                               <div className='modal-box-body-items-goto-icon'>
                                 <EnterKeyIcon />
                               </div>

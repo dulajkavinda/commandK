@@ -16,6 +16,11 @@ const Button = (props: ButtonType) => {
     [`search-bar-key-${props.size}`]: props.size,
   })
 
+  const getKeyBasedOnOS = (): string => {
+    const isMac: boolean = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+    return isMac ? 'Command +' : 'Ctrl +'
+  }
+
   return (
     <>
       <button
@@ -30,7 +35,7 @@ const Button = (props: ButtonType) => {
         style={props.styles}
       >
         <div className={iconClass}>
-          <span>Command +</span>
+          <span>{getKeyBasedOnOS()}</span>
         </div>
         <div className={keyClass}>{props.keyLetter?.toUpperCase()}</div>
       </button>

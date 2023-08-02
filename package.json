@@ -44,6 +44,8 @@
     "husky": "^8.0.3",
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^2.78.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",

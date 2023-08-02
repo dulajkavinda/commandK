@@ -1,15 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import './Button.css'
-
-export type ButtonSize = 'small' | 'medium' | 'large'
-
-export interface ButtonType {
-  keyLetter?: string
-  size?: ButtonSize
-  styles?: React.CSSProperties
-  onClick?: () => void
-}
+import { ButtonSize, ButtonType } from './Button.types'
 
 const Button = (props: ButtonType) => {
   const btnClass = classNames('search-bar', {

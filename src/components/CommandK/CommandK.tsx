@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import Modal, { ModalSize } from '../Modal/Modal'
-import Button, { ButtonSize } from '../Button/Button'
-
-export interface CommandKProps {
-  keyLetter?: string
-  buttonSize?: ButtonSize
-  modalSize?: ModalSize
-  username?: string
-}
+import Modal from '../Modal/Modal'
+import Button from '../Button/Button'
+import { CommandKProps } from './CommandK.types'
+import { ButtonSize } from '../Button/Button.types'
 
 const CommandK = (props: CommandKProps) => {
   const [isOpen, setIsOpen] = useState(true)
@@ -35,7 +30,13 @@ const CommandK = (props: CommandKProps) => {
   return (
     <>
       {isOpen && (
-        <Modal size={props.modalSize} isOpen={isOpen} username={props.username} toggle={() => setIsOpen(false)} />
+        <Modal
+          data={props.data}
+          size={props.modalSize}
+          isOpen={isOpen}
+          username={props.username}
+          toggle={() => setIsOpen(false)}
+        />
       )}
       <Button size={props.buttonSize} keyLetter={props.keyLetter} onClick={() => setIsOpen(true)} />
     </>

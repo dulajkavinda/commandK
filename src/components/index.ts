@@ -1,2 +1,3 @@
-export { default as Button } from './Button'
-export { default as Modal } from './Modal'
+import { CommandK } from './CommandK'
+
+export default CommandK

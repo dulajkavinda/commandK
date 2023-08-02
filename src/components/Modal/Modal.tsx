@@ -1,84 +1,16 @@
-import React, { ReactNode, useEffect, useReducer, useRef } from 'react'
+import React, { useEffect, useReducer, useRef, useMemo, useState } from 'react'
 import classNames from 'classnames'
 import { SearchIcon } from './SearchIcon'
 import useKeyPress from '../../hooks/useKeyPress'
+import { Action, Group, Item, ModalSize, ModalType, State } from './Modal.types'
 import './Modal.css'
-
-export type ModalSize = 'small' | 'medium' | 'large'
-
-interface ModalType {
-  children?: ReactNode
-  size?: ModalSize
-  username?: string
-  isOpen: boolean
-  toggle: () => void
-}
-interface State {
-  selectedIndex: number
-}
-
-type Action = { type: 'arrowUp' } | { type: 'arrowDown' } | { type: 'select'; payload: number }
-
-const list = [
-  {
-    title: 'Repositories',
-    items: [
-      {
-        icon: '🗂',
-        title: 'How to make a good repo',
-        url: 'https://google.lk',
-      },
-      {
-        icon: '🚀',
-        title: 'This is another one to check',
-        url: 'https://google.lk',
-      },
-    ],
-  },
-  {
-    title: 'Projects',
-    items: [
-      {
-        icon: '🏋️‍♀️',
-        title: 'How to make a good repo',
-      },
-      {
-        icon: '📸',
-        title: 'This is another one to check',
-      },
-    ],
-  },
-  {
-    title: 'Something',
-    items: [
-      {
-        icon: '🏋️‍♀️',
-        title: 'How to make a good repo',
-        url: 'https://google.lk',
-      },
-      {
-        icon: '📸',
-        title: 'This is another one to check',
-        url: 'https://google.lk',
-      },
-      {
-        icon: '🏋️‍♀️',
-        title: 'How to make a good repo',
-        url: 'https://google.lk',
-      },
-      {
-        icon: '📸',
-        title: 'This is another one to check',
-        url: 'https://google.lk',
-      },
-    ],
-  },
-]
 
 const Modal = (props: ModalType) => {
   const modalClass = classNames('modal-box', {
     [`modal-box-${props.size}`]: props.size,
   })
+
+  const [list, setList] = useState<Group[]>(props.data)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -86,6 +18,27 @@ const Modal = (props: ModalType) => {
   const arrowDownPressed = useKeyPress('ArrowDown')
 
   const initialState = { selectedIndex: 0 }
+
+  const items = useMemo(() => {
+    return list.map((item) => item.items).flat()
+  }, [list])
+
+  const filterItems = (list: Group[], title: string): void => {
+    const result: Group[] = []
+
+    list.forEach((obj) => {
+      const items = obj.items.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
+
+      if (items.length > 0) {
+        result.push({
+          ...obj,
+          items,
+        })
+      }
+    })
+
+    setList(result)
+  }
 
   const reducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -102,7 +55,7 @@ const Modal = (props: ModalType) => {
         }
 
         return {
-          selectedIndex: state.selectedIndex !== 7 ? state.selectedIndex + 1 : 0,
+          selectedIndex: state.selectedIndex !== items.length - 1 ? state.selectedIndex + 1 : 0,
         }
       }
       case 'select':
@@ -141,29 +94,36 @@ const Modal = (props: ModalType) => {
           <div onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
             <div className='modal-box-header'>
               <div className='modal-box-header-search'>
-                <div className='modal-box-header-search-icon'>
-                  <SearchIcon />
-                  <span className='modal-box-header-search-username'>{props.username}</span>
+                <div className='modal-box-header-search-left'>
+                  <div className='modal-box-header-search-icon'>
+                    <SearchIcon />
+                    <span className='modal-box-header-search-username'>{props.username}</span>
+                  </div>
+                  <input
+                    onChange={(e) => {
+                      filterItems(props.data, e.target.value)
+                    }}
+                    ref={inputRef}
+                    className='modal-box-header-search-input'
+                    type='text'
+                    placeholder='Search or jump to'
+                    onKeyDown={(e) => {
+                      if (e.key === 'ArrowDown') {
+                        console.log('arrow down')
+                      }
+                    }}
+                  />
                 </div>
-                <input
-                  ref={inputRef}
-                  className='modal-box-header-search-input'
-                  type='text'
-                  placeholder='Search or jump to'
-                  onKeyDown={(e) => {
-                    if (e.key === 'ArrowDown') {
-                      console.log('arrow down')
-                    }
-                  }}
-                />
+
+                <div className='modal-box-header-search-results'>{items.length} Results</div>
               </div>
             </div>
             <div className='modal-box-body'>
-              {list.map((item: any, index) => {
+              {list.map((item: Group, index) => {
                 return (
                   <div key={index} className='modal-box-body-item'>
-                    <div className='modal-box-body-item-title'>{item.title}</div>
-                    {item.items.map((subItem: any) => {
+                    <div className='modal-box-body-item-title'>{item.sectionName}</div>
+                    {item.items.map((subItem: Item) => {
                       const listItemIndex = trackItemindex++
                       return (
                         <div
@@ -203,6 +163,7 @@ const Modal = (props: ModalType) => {
 
 Modal.defaultProps = {
   size: 'medium' as ModalSize,
+  data: [],
 }
 
 export default Modal

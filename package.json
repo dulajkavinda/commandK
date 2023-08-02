@@ -1,6 +1,6 @@
 {
   "name": "commandk",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Command + K to Search.",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -12,6 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint ./src --fix",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "husky install",
     "test": "jest -u --silent",

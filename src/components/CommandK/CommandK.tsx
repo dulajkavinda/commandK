@@ -39,12 +39,7 @@ const CommandK = (props: CommandKProps) => {
   }, [isOpen])
 
   return (
-    <div
-      style={{
-        height: '2000px',
-      }}
-      data-testid='commandk'
-    >
+    <div data-testid='commandk'>
       {isOpen && (
         <Modal
           data={props.data}

@@ -77,6 +77,7 @@ export const Small: Story = {
     data: listA,
     isOpen: true,
     toggle: () => {},
+    username: 'home',
     size: 'small',
   },
 }
@@ -86,6 +87,7 @@ export const Medium: Story = {
     data: listA,
     isOpen: true,
     toggle: () => {},
+    username: 'home',
     size: 'medium',
   },
 }
@@ -95,6 +97,7 @@ export const Large: Story = {
     data: listA,
     isOpen: true,
     toggle: () => {},
+    username: 'home',
     size: 'large',
   },
 }

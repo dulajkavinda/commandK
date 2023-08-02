@@ -129,13 +129,15 @@ const Modal = (props: ModalType) => {
                 </div>
                 <div className='modal-box-header-search-right'>
                   <div className='modal-box-header-search-right-nav'>
-                    <span className='modal-box-header-search-right-text-start'>Press</span>
+                    {props.size !== 'small' && <span className='modal-box-header-search-right-text-start'>Press</span>}
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>
                     <span className='modal-box-header-search-right-text'>to Navigate</span>
                   </div>
-                  <div className='modal-box-header-search-results'>{items.length} Results</div>
+                  <div className='modal-box-header-search-results'>
+                    {items.length === 1 ? `${items.length} Result` : `${items.length} Results`}
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,6 +194,9 @@ const Modal = (props: ModalType) => {
 Modal.defaultProps = {
   size: 'medium' as ModalSize,
   data: [],
+  isOpen: false,
+  toggle: () => {},
+  username: 'home',
 }
 
 export default Modal

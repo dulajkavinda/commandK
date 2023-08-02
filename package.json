@@ -11,8 +11,9 @@
     "build": "rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\""
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "prepare": "husky install"
   },
   "author": "Dulaj Kavinda",
   "license": "MIT",
@@ -40,6 +41,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
     "rollup": "^2.78.1",

@@ -162,6 +162,7 @@
 
 .modal-box-body-items:hover {
   opacity: 0.8;
+  border: 1px dashed #687585;
   animation-duration: 1s;
 }
 

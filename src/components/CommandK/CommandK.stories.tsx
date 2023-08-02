@@ -32,44 +32,44 @@ const listA: Group[] = [
       },
     ],
   },
-  // {
-  //   sectionName: 'Projects',
-  //   items: [
-  //     {
-  //       icon: '🏋️‍♀️',
-  //       title: 'How to make a good repo',
-  //     },
-  //     {
-  //       icon: '📸',
-  //       title: 'This is another one to check',
-  //     },
-  //   ],
-  // },
-  // {
-  //   sectionName: 'Something',
-  //   items: [
-  //     {
-  //       icon: '🏋️‍♀️',
-  //       title: 'How to make a good repo',
-  //       url: 'https://google.lk',
-  //     },
-  //     {
-  //       icon: '📸',
-  //       title: 'This is another one to check',
-  //       url: 'https://google.lk',
-  //     },
-  //     {
-  //       icon: '🏋️‍♀️',
-  //       title: 'How to make a good repo',
-  //       url: 'https://google.lk',
-  //     },
-  //     {
-  //       icon: '📸',
-  //       title: 'This is another one to check',
-  //       url: 'https://google.lk',
-  //     },
-  //   ],
-  // },
+  {
+    sectionName: 'Projects',
+    items: [
+      {
+        icon: '🏋️‍♀️',
+        title: 'How to make a good repo',
+      },
+      {
+        icon: '📸',
+        title: 'This is another one to check',
+      },
+    ],
+  },
+  {
+    sectionName: 'Something',
+    items: [
+      {
+        icon: '🏋️‍♀️',
+        title: 'How to make a good repo',
+        url: 'https://google.lk',
+      },
+      {
+        icon: '📸',
+        title: 'This is another one to check',
+        url: 'https://google.lk',
+      },
+      {
+        icon: '🏋️‍♀️',
+        title: 'How to make a good repo',
+        url: 'https://google.lk',
+      },
+      {
+        icon: '📸',
+        title: 'This is another one to check',
+        url: 'https://google.lk',
+      },
+    ],
+  },
 ]
 
 export const Small: Story = {

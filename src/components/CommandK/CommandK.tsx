@@ -31,6 +31,7 @@ const CommandK = (props: CommandKProps) => {
     }
 
     if (!isOpen) {
+      document.body.style.overflow = ''
       return () => {
         document.removeEventListener('keydown', handleKeyDown)
       }
@@ -38,7 +39,12 @@ const CommandK = (props: CommandKProps) => {
   }, [isOpen])
 
   return (
-    <div data-testid='commandk'>
+    <div
+      style={{
+        height: '2000px',
+      }}
+      data-testid='commandk'
+    >
       {isOpen && (
         <Modal
           data={props.data}

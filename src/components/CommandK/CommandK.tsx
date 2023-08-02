@@ -9,7 +9,6 @@ const CommandK = (props: CommandKProps) => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault()
       if ((event.metaKey && event.key === 'k') || (event.ctrlKey && event.key === 'k')) {
         const button = document.getElementById('search-button') as HTMLButtonElement | null
         if (button) {

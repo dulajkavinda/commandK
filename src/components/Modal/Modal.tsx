@@ -97,6 +97,7 @@ const Modal = (props: ModalType) => {
     <>
       {props.isOpen && (
         <div
+          data-testid='modal-overlay'
           className='modal-overlay'
           onClick={() => {
             props.toggle()
@@ -104,7 +105,7 @@ const Modal = (props: ModalType) => {
             document.body.style.overflow = ''
           }}
         >
-          <div onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
+          <div data-testid='modal' onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
             <div className='modal-box-header'>
               <div className='modal-box-header-search'>
                 <div className='modal-box-header-search-left'>
@@ -129,7 +130,11 @@ const Modal = (props: ModalType) => {
                 </div>
                 <div className='modal-box-header-search-right'>
                   <div className='modal-box-header-search-right-nav'>
-                    {props.size !== 'small' && <span className='modal-box-header-search-right-text-start'>Press</span>}
+                    {props.size !== 'small' && (
+                      <span data-testid='press-text' className='modal-box-header-search-right-text-start'>
+                        Press
+                      </span>
+                    )}
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>

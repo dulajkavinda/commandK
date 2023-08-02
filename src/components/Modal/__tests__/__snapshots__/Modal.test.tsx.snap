@@ -1,0 +1,674 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Modal renders modal 1`] = `
+<div
+  className="modal-overlay"
+  data-testid="modal-overlay"
+  onClick={[Function]}
+>
+  <div
+    className="modal-box modal-box-medium"
+    data-testid="modal"
+    id="modal-box"
+    onClick={[Function]}
+  >
+    <div
+      className="modal-box-header"
+    >
+      <div
+        className="modal-box-header-search"
+      >
+        <div
+          className="modal-box-header-search-left"
+        >
+          <div
+            className="modal-box-header-search-icon"
+          >
+            <svg
+              fill="none"
+              height={18}
+              viewBox="0 0 21 21"
+              width={18}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 20L15.514 15.506M18 9.5C18 11.7543 17.1045 13.9163 15.5104 15.5104C13.9163 17.1045 11.7543 18 9.5 18C7.24566 18 5.08365 17.1045 3.48959 15.5104C1.89553 13.9163 1 11.7543 1 9.5C1 7.24566 1.89553 5.08365 3.48959 3.48959C5.08365 1.89553 7.24566 1 9.5 1C11.7543 1 13.9163 1.89553 15.5104 3.48959C17.1045 5.08365 18 7.24566 18 9.5Z"
+                stroke="#707680"
+                strokeLinecap="round"
+                strokeWidth="2"
+              />
+            </svg>
+            <span
+              className="modal-box-header-search-username"
+            >
+              home
+            </span>
+          </div>
+          <input
+            className="modal-box-header-search-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Search or jump to"
+            type="text"
+          />
+        </div>
+        <div
+          className="modal-box-header-search-right"
+        >
+          <div
+            className="modal-box-header-search-right-nav"
+          >
+            <span
+              className="modal-box-header-search-right-text-start"
+              data-testid="press-text"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-header-search-right-icon"
+            >
+              <svg
+                height={18}
+                viewBox="0 0 14 14"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="rotate(180 7 7)"
+                >
+                  <g
+                    fill="none"
+                    stroke="#707680"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect
+                      height="13"
+                      rx="1"
+                      width="13"
+                      x=".5"
+                      y=".5"
+                    />
+                    <path
+                      d="M8.5 10.5v-3h2L7 3.5l-3.5 4h2v3h3z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span
+              className="modal-box-header-search-right-text"
+            >
+              to Navigate
+            </span>
+          </div>
+          <div
+            className="modal-box-header-search-results"
+          >
+            8 Results
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="modal-box-body"
+    >
+      <div
+        className="modal-box-body-item"
+      >
+        <div
+          className="modal-box-body-item-title"
+        >
+          Repositories
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-0"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              🗂
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              How to make a good repo
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              🚀
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              This is another one to check
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal-box-body-item"
+      >
+        <div
+          className="modal-box-body-item-title"
+        >
+          Projects
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              🏋️‍♀️
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              How to make a good repo
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-3"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              📸
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              This is another one to check
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal-box-body-item"
+      >
+        <div
+          className="modal-box-body-item-title"
+        >
+          Something
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-4"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              🏋️‍♀️
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              How to make a good repo
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-5"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              📸
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              This is another one to check
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-6"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              🏋️‍♀️
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              How to make a good repo
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+        <div
+          className="modal-box-body-items modal-box-body-items-7"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="modal-box-body-items-left"
+          >
+            <div
+              className="modal-box-body-items-icon"
+            >
+              📸
+            </div>
+            <div
+              className="modal-box-body-items-title"
+            >
+              This is another one to check
+            </div>
+          </div>
+          <div
+            className="modal-box-body-items-goto"
+          >
+            <span
+              className="modal-box-body-items-goto-text-start"
+            >
+              Press
+            </span>
+            <div
+              className="modal-box-body-items-goto-icon"
+            >
+              <svg
+                fill="none"
+                height={18}
+                viewBox="0 0 15 15"
+                width={18}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1H2C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1Z"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 11L4 9L6 7"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 9H9C9.26522 9 9.51957 8.89464 9.70711 8.70711C9.89464 8.51957 10 8.26522 10 8V5"
+                  stroke="#707680"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              className="modal-box-body-items-goto-text"
+            >
+              to Jump
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

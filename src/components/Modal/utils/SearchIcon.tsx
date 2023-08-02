@@ -4,7 +4,7 @@ interface SearchIconAttributes {
   size?: number
 }
 
-export const SearchIcon: React.FC<SearchIconAttributes> = ({ size = 18 }: SearchIconAttributes) => {
+const SearchIcon: React.FC<SearchIconAttributes> = ({ size = 18 }: SearchIconAttributes) => {
   return (
     <svg width={size} height={size} viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -16,3 +16,5 @@ export const SearchIcon: React.FC<SearchIconAttributes> = ({ size = 18 }: Search
     </svg>
   )
 }
+
+export default SearchIcon

@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useRef, useMemo, useState } from 'react'
 import classNames from 'classnames'
-import { SearchIcon } from './SearchIcon'
+import { SearchIcon, EnterKeyIcon, DownArrowIcon } from './utils'
 import useKeyPress from '../../hooks/useKeyPress'
 import { Action, Group, Item, ModalSize, ModalType, State } from './Modal.types'
 import './Modal.css'
@@ -69,6 +69,7 @@ const Modal = (props: ModalType) => {
 
   useEffect(() => {
     if (inputRef.current) {
+      // avoiding scroll to top when focusing on input
       const x = window.scrollX
       const y = window.scrollY
       inputRef.current.focus({
@@ -119,8 +120,15 @@ const Modal = (props: ModalType) => {
                     }}
                   />
                 </div>
-
-                <div className='modal-box-header-search-results'>{items.length} Results</div>
+                <div className='modal-box-header-search-right'>
+                  <div className='modal-box-header-search-right-nav'>
+                    <div className='modal-box-header-search-right-icon'>
+                      <DownArrowIcon />
+                    </div>
+                    <span className='modal-box-header-search-right-text'>to navigate</span>
+                  </div>
+                  <div className='modal-box-header-search-results'>{items.length} Results</div>
+                </div>
               </div>
             </div>
             <div className='modal-box-body'>
@@ -152,7 +160,12 @@ const Modal = (props: ModalType) => {
                               <div className='modal-box-body-items-icon'>{subItem.icon}</div>
                               <div className='modal-box-body-items-title'>{subItem.title}</div>
                             </div>
-                            <span className='modal-box-body-items-goto'>Go to</span>
+                            <div className='modal-box-body-items-goto'>
+                              <div className='modal-box-body-items-goto-icon'>
+                                <EnterKeyIcon />
+                              </div>
+                              <span className='modal-box-body-items-goto-text'>to Jump</span>
+                            </div>
                           </div>
                         )
                       })}

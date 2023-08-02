@@ -180,8 +180,44 @@
   align-items: center;
 }
 
+.modal-box-body-items-goto {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #687585;
+}
+
+.modal-box-body-items-goto-icon {
+  margin-right: 8px;
+  margin-top: 3px;
+}
+
 .modal-box-body-items:not(:focus) .modal-box-body-items-goto {
   display: none;
+}
+
+.modal-box-header-search-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-box-header-search-right-nav {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.modal-box-header-search-right-icon {
+  margin-right: 5px;
+}
+
+.modal-box-header-search-right-text {
+  font-size: 1em;
+  font-weight: 600;
+  color: #687585;
 }
 
 @keyframes fadein {

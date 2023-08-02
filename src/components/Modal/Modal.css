@@ -23,7 +23,7 @@
 .modal-box-medium {
   display: block;
   background: #1e262f;
-  width: 50%;
+  width: 43em;
   min-height: 30%;
   border-radius: 1rem;
   animation: fadein 0.2s;
@@ -32,7 +32,7 @@
 .modal-box-small {
   display: block;
   background: #1e262f;
-  width: 40%;
+  width: 30em;
   min-height: 30%;
   padding: 1rem;
   border-radius: 1rem;

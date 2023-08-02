@@ -10,7 +10,7 @@ const Modal = (props: ModalType) => {
     [`modal-box-${props.size}`]: props.size,
   })
 
-  const [list, setList] = useState<Group[]>(props.data)
+  const [list, setList] = useState<Group[] | []>(props.data || [])
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -20,7 +20,7 @@ const Modal = (props: ModalType) => {
   const initialState = { selectedIndex: 0 }
 
   const items = useMemo(() => {
-    return list.map((item) => item.items).flat()
+    return list && list.map((item) => item.items).flat()
   }, [list])
 
   const filterItems = (list: Group[], title: string): void => {
@@ -69,7 +69,12 @@ const Modal = (props: ModalType) => {
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.focus()
+      const x = window.scrollX
+      const y = window.scrollY
+      inputRef.current.focus({
+        preventScroll: true,
+      })
+      window.scrollTo(x, y)
     }
   }, [])
 
@@ -119,40 +124,41 @@ const Modal = (props: ModalType) => {
               </div>
             </div>
             <div className='modal-box-body'>
-              {list.map((item: Group, index) => {
-                return (
-                  <div key={index} className='modal-box-body-item'>
-                    <div className='modal-box-body-item-title'>{item.sectionName}</div>
-                    {item.items.map((subItem: Item) => {
-                      const listItemIndex = trackItemindex++
-                      return (
-                        <div
-                          role='button'
-                          tabIndex={0}
-                          key={trackItemindex}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
+              {list &&
+                list.map((item: Group, index) => {
+                  return (
+                    <div key={index} className='modal-box-body-item'>
+                      <div className='modal-box-body-item-title'>{item.sectionName}</div>
+                      {item.items.map((subItem: Item) => {
+                        const listItemIndex = trackItemindex++
+                        return (
+                          <div
+                            role='button'
+                            tabIndex={0}
+                            key={trackItemindex}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                window.open(subItem.url)
+                              }
+                            }}
+                            onClick={() => {
                               window.open(subItem.url)
-                            }
-                          }}
-                          onClick={() => {
-                            window.open(subItem.url)
-                          }}
-                          className={classNames('modal-box-body-items', {
-                            [`modal-box-body-items-${listItemIndex + 1}`]: true,
-                          })}
-                        >
-                          <div className='modal-box-body-items-left'>
-                            <div className='modal-box-body-items-icon'>{subItem.icon}</div>
-                            <div className='modal-box-body-items-title'>{subItem.title}</div>
+                            }}
+                            className={classNames('modal-box-body-items', {
+                              [`modal-box-body-items-${listItemIndex + 1}`]: true,
+                            })}
+                          >
+                            <div className='modal-box-body-items-left'>
+                              <div className='modal-box-body-items-icon'>{subItem.icon}</div>
+                              <div className='modal-box-body-items-title'>{subItem.title}</div>
+                            </div>
+                            <span className='modal-box-body-items-goto'>Go to</span>
                           </div>
-                          <span className='modal-box-body-items-goto'>Go to</span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                )
-              })}
+                        )
+                      })}
+                    </div>
+                  )
+                })}
             </div>
           </div>
         </div>

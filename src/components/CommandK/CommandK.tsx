@@ -5,15 +5,21 @@ import { CommandKProps } from './CommandK.types'
 import { ButtonSize } from '../Button/Button.types'
 
 const CommandK = (props: CommandKProps) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      event.preventDefault()
       if ((event.metaKey && event.key === 'k') || (event.ctrlKey && event.key === 'k')) {
         const button = document.getElementById('search-button') as HTMLButtonElement | null
         if (button) {
-          button.focus()
+          const x = window.scrollX
+          const y = window.scrollY
           setIsOpen(!isOpen)
+          button.focus({
+            preventScroll: true,
+          })
+          window.scrollTo(x, y)
         }
       }
     }
@@ -38,7 +44,12 @@ const CommandK = (props: CommandKProps) => {
           toggle={() => setIsOpen(false)}
         />
       )}
-      <Button size={props.buttonSize} keyLetter={props.keyLetter} onClick={() => setIsOpen(true)} />
+      <Button
+        styles={props.customStyles}
+        size={props.buttonSize}
+        keyLetter={props.keyLetter}
+        onClick={() => setIsOpen(true)}
+      />
     </>
   )
 }
@@ -47,6 +58,7 @@ CommandK.defaultProps = {
   keyLetter: 'K',
   buttonSize: 'medium' as ButtonSize,
   username: 'home',
+  customStyles: {},
 }
 
 export default CommandK

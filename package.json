@@ -1,8 +1,12 @@
 {
-  "name": "commadk",
-  "version": "1.0.1",
+  "name": "commandk",
+  "version": "1.1.8",
   "description": "Command + K to Search.",
-  "main": "dist/cjs/index.js",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "rollup -c",
     "storybook": "storybook dev -p 6006",
@@ -16,10 +20,10 @@
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@rollup/plugin-commonjs": "^25.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-terser": "^0.4.3",
-    "@rollup/plugin-typescript": "^11.1.2",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-image": "^2.1.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.4.0",
     "@storybook/addon-essentials": "^7.2.0",
     "@storybook/addon-interactions": "^7.2.0",
     "@storybook/addon-links": "^7.2.0",
@@ -38,23 +42,21 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
-    "rollup": "^3.27.0",
-    "rollup-plugin-dts": "^5.3.1",
+    "rollup": "^2.78.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.33.0",
     "storybook": "^7.2.0",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6"
   },
-  "dependencies": {
-    "classnames": "^2.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   },
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "types": "dist/index.d.ts",
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
   "packageManager": "yarn@3.6.1"
 }

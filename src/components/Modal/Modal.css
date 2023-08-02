@@ -1,8 +1,6 @@
 .modal-overlay {
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  z-index: 99999;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;

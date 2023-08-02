@@ -87,6 +87,9 @@ export const Medium: Story = {
     modalSize: 'medium',
     buttonSize: 'medium',
     data: listA,
+    customStyles: {
+      opacity: 0.9,
+    },
   },
 }
 

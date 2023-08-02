@@ -5,7 +5,7 @@ import { CommandKProps } from './CommandK.types'
 import { ButtonSize } from '../Button/Button.types'
 
 const CommandK = (props: CommandKProps) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

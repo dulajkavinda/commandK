@@ -50,8 +50,8 @@ describe('components/Button', () => {
 
   it('button should show given custom styles', () => {
     render(<Button styles={{ backgroundColor: 'red' }} />)
-    const primaryButton = screen.getByRole('button')
+    const btn = screen.getByRole('button')
 
-    expect(primaryButton).toHaveStyle('background-color: red')
+    expect(btn).toHaveStyle('background-color: red')
   })
 })

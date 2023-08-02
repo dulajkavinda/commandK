@@ -38,7 +38,7 @@ const CommandK = (props: CommandKProps) => {
   }, [isOpen])
 
   return (
-    <>
+    <div data-testid='commandk'>
       {isOpen && (
         <Modal
           data={props.data}
@@ -54,7 +54,7 @@ const CommandK = (props: CommandKProps) => {
         keyLetter={props.keyLetter}
         onClick={() => setIsOpen(true)}
       />
-    </>
+    </div>
   )
 }
 

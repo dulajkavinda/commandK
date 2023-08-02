@@ -114,6 +114,7 @@ const Modal = (props: ModalType) => {
                     <span className='modal-box-header-search-username'>{props.username}</span>
                   </div>
                   <input
+                    data-testid='search-input'
                     onChange={(e) => {
                       filterItems(props.data, e.target.value)
                     }}

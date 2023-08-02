@@ -24,6 +24,7 @@ const Button = (props: ButtonType) => {
   return (
     <>
       <button
+        data-testid='search-button'
         id='search-button'
         type='button'
         onClick={() => {

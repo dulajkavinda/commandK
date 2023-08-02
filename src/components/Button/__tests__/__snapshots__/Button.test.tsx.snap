@@ -3,6 +3,7 @@
 exports[`components/Button should render a button 1`] = `
 <button
   className="search-bar search-bar-medium"
+  data-testid="search-button"
   id="search-button"
   onClick={[Function]}
   type="button"

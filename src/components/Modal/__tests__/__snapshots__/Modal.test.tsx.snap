@@ -46,6 +46,7 @@ exports[`components/Modal renders modal 1`] = `
           </div>
           <input
             className="modal-box-header-search-input"
+            data-testid="search-input"
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder="Search or jump to"

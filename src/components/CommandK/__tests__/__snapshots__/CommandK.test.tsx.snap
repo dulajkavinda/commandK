@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/CommandK renders commandK 1`] = `
+<div
+  data-testid="commandk"
+>
+  <button
+    className="search-bar search-bar-medium"
+    data-testid="search-button"
+    id="search-button"
+    onClick={[Function]}
+    style={{}}
+    type="button"
+  >
+    <div
+      className="search-bar-icon search-bar-icon-medium"
+    >
+      <span>
+        Ctrl +
+      </span>
+    </div>
+    <div
+      className="search-bar-key search-bar-key-medium"
+    >
+      K
+    </div>
+  </button>
+</div>
+`;

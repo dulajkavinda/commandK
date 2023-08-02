@@ -140,7 +140,7 @@ exports[`components/Modal renders modal 1`] = `
             <div
               className="modal-box-body-items-title"
             >
-              How to make a good repo
+              How to make a good repo random
             </div>
           </div>
           <div

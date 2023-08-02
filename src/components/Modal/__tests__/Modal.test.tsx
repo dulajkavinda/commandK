@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { screen, render, fireEvent } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import Modal from '../Modal'
 import { Group } from '../Modal.types'
@@ -10,7 +10,7 @@ const list: Group[] = [
     items: [
       {
         icon: '🗂',
-        title: 'How to make a good repo',
+        title: 'How to make a good repo random',
         url: '/repo',
       },
       {
@@ -131,5 +131,30 @@ describe('components/Modal', () => {
     render(<Modal size='small' data={list} isOpen toggle={() => null} />)
 
     expect(screen.queryByTestId('press-text')).not.toBeInTheDocument()
+  })
+
+  it('focus on the 1st item when the down arrow pressed', () => {
+    render(<Modal size='small' data={list} isOpen toggle={() => null} />)
+
+    const input = screen.getByTestId('search-input')
+
+    input.focus()
+    fireEvent.keyDown(input, { key: 'ArrowDown', code: 'ArrowDown' })
+
+    expect(screen.getByTestId('modal')).toHaveTextContent('How to make a good repo')
+  })
+
+  it('filter list based on search terms', () => {
+    render(<Modal size='small' data={list} isOpen toggle={() => null} />)
+
+    const input = screen.getByTestId('search-input')
+
+    input.focus()
+    fireEvent.change(input, { target: { value: 'random' } })
+    input.blur()
+
+    expect(screen.getByTestId('modal')).toHaveTextContent('Repositories')
+    expect(screen.queryByText('Projects')).not.toBeInTheDocument()
+    expect(screen.queryByText('Something')).not.toBeInTheDocument()
   })
 })

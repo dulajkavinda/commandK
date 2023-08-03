@@ -105,6 +105,7 @@ exports[`components/Modal renders modal 1`] = `
           </div>
           <div
             className="modal-box-header-search-results"
+            data-testid="noresults"
           >
             8 Results
           </div>

@@ -10,6 +10,12 @@ const Modal = (props: ModalType) => {
     [`modal-box-${props.size}`]: props.size,
   })
 
+  const items = useMemo(() => {
+    return props.data && props.data.map((item) => item.items).flat()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const [resultCount, setResultCount] = useState<number>(items.length)
   const [list, setList] = useState<Group[] | []>(
     props.data.map((group) => {
       return {
@@ -33,6 +39,10 @@ const Modal = (props: ModalType) => {
     }) || [],
   )
 
+  const filteredItemsCount = useMemo(() => {
+    return list.map((item) => item.items).flat().length
+  }, [list])
+
   const inputRef = useRef<HTMLInputElement>(null)
 
   const arrowUpPressed = useKeyPress('ArrowUp')
@@ -40,32 +50,19 @@ const Modal = (props: ModalType) => {
 
   const initialState = { selectedIndex: 0 }
 
-  const items = useMemo(() => {
-    return props.data && props.data.map((item) => item.items).flat()
-  }, [])
-
-  const filterItems = (list: Group[], title: string): void => {
-    const result: Group[] = []
-
-    list.forEach((obj) => {
-      const items = obj.items.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
-
-      if (items.length > 0) {
-        result.push({
-          ...obj,
-          items,
-        })
-      }
-    })
-
-    setList(result)
-  }
-
   const reducer = (state: State, action: Action): State => {
     switch (action.type) {
       case 'arrowUp': {
+        const button = document.getElementsByClassName(
+          `modal-box-body-items-${state.selectedIndex - 2}`,
+        )[0] as HTMLElement
+
+        if (button) {
+          button.focus()
+        }
+
         return {
-          selectedIndex: state.selectedIndex,
+          selectedIndex: state.selectedIndex !== 0 ? state.selectedIndex - 1 : 0,
         }
       }
       case 'arrowDown': {
@@ -76,7 +73,7 @@ const Modal = (props: ModalType) => {
         }
 
         return {
-          selectedIndex: state.selectedIndex !== items.length - 1 ? state.selectedIndex + 1 : 0,
+          selectedIndex: state.selectedIndex !== filteredItemsCount - 1 ? state.selectedIndex + 1 : 0,
         }
       }
       case 'select':
@@ -113,6 +110,28 @@ const Modal = (props: ModalType) => {
   }, [arrowDownPressed])
 
   let trackItemindex = -1
+
+  const filterItems = (list: Group[], title: string): void => {
+    const result: Group[] = []
+
+    list.forEach((obj) => {
+      const items = obj.items.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
+
+      if (items.length > 0) {
+        result.push({
+          ...obj,
+          items,
+        })
+      }
+    })
+
+    const resultsCount = result.reduce((acc: number, curr: Group) => {
+      return acc + curr.items.length
+    }, 0)
+
+    setResultCount(resultsCount)
+    setList(result)
+  }
 
   return (
     <>
@@ -162,8 +181,8 @@ const Modal = (props: ModalType) => {
                     </div>
                     <span className='modal-box-header-search-right-text'>to Navigate</span>
                   </div>
-                  <div className='modal-box-header-search-results'>
-                    {items.length === 1 ? `${items.length} Result` : `${items.length} Results`}
+                  <div data-testid='noresults' className='modal-box-header-search-results'>
+                    {resultCount === 1 ? `${resultCount} Result` : `${resultCount} Results`}
                   </div>
                 </div>
               </div>

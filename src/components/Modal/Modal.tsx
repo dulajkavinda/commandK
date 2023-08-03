@@ -61,6 +61,13 @@ const Modal = (props: ModalType) => {
           button.focus()
         }
 
+        // focusing on input if up arrow is pressed on first item
+        if (state.selectedIndex === 1) {
+          if (inputRef.current) {
+            inputRef.current.focus()
+          }
+        }
+
         return {
           selectedIndex: state.selectedIndex !== 0 ? state.selectedIndex - 1 : 0,
         }
@@ -163,24 +170,29 @@ const Modal = (props: ModalType) => {
                     type='text'
                     placeholder='Search or jump to'
                     onKeyDown={(e) => {
-                      if (e.key === 'ArrowDown') {
-                        console.log('arrow down')
+                      if (e.key === 'Enter') {
+                        dispatch({ type: 'arrowDown' })
                       }
                     }}
                   />
                 </div>
                 <div className='modal-box-header-search-right'>
-                  <div className='modal-box-header-search-right-nav'>
-                    {props.size !== 'small' && (
+                  {props.size !== 'small' ? (
+                    <div className='modal-box-header-search-right-nav'>
                       <span data-testid='press-text' className='modal-box-header-search-right-text-start'>
                         Press
                       </span>
-                    )}
+                      <div className='modal-box-header-search-right-icon'>
+                        <DownArrowIcon />
+                      </div>
+                      <span className='modal-box-header-search-right-text'>to Navigate</span>
+                    </div>
+                  ) : (
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>
-                    <span className='modal-box-header-search-right-text'>to Navigate</span>
-                  </div>
+                  )}
+
                   <div data-testid='noresults' className='modal-box-header-search-results'>
                     {resultCount === 1 ? `${resultCount} Result` : `${resultCount} Results`}
                   </div>

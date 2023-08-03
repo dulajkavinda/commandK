@@ -25,12 +25,12 @@
 ## Features
 Currently, commandK supports the following:
 
- - [x] Responsive search popup
  - [x] Open the popup using `Command` + `K`
  - [x] Filter items based on search terms
  - [x] Supports 3 sizes for the modal (medium, large and small)
  - [x] Supports custom styles
  - [x] Navigation with keyboard
+ - [x] Mobile responsive 
  - [ ] Light mode support
  
 You can suggest new features [here](https://github.com/dulajkavinda/commandK/issues)
@@ -169,8 +169,10 @@ To check the test coverage you can run `yarn coverage`.
 
 ### Keyboard support
 
-- _Down_: Navigate through the searched items.
-- _Command/K_: open and close the search modal.
+- _Down_: Navigate through the searched items
+- _Up_: Navigate through the searched items
+- _Enter_: Jump to the selected page/url
+- _Command/K_: open and close the search modal
 
 ## Contributing
 Contributions are welcome! If you have any ideas, bug reports, or feature requests, please submit them through the GitHub issue tracker. If you would like to contribute code, follow these steps:

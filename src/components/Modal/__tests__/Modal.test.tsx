@@ -157,4 +157,10 @@ describe('components/Modal', () => {
     expect(screen.queryByText('Projects')).not.toBeInTheDocument()
     expect(screen.queryByText('Something')).not.toBeInTheDocument()
   })
+
+  it('if perSectionLimit specified limit items shows per section', () => {
+    render(<Modal perSectionLimit={1} data={list} isOpen toggle={() => null} />)
+
+    expect(screen.getAllByTestId('modal-box-body-item')).toHaveLength(3)
+  })
 })

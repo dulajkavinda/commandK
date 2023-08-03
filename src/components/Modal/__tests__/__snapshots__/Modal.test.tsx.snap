@@ -124,6 +124,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-0"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -190,6 +191,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-1"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -265,6 +267,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-2"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -331,6 +334,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-3"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -406,6 +410,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-4"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -472,6 +477,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-5"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -538,6 +544,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-6"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -604,6 +611,7 @@ exports[`components/Modal renders modal 1`] = `
         </div>
         <div
           className="modal-box-body-items modal-box-body-items-7"
+          data-testid="modal-box-body-item"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"

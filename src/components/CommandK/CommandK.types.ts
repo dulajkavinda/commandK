@@ -7,5 +7,6 @@ export interface CommandKProps {
   modalSize?: ModalSize
   data: Group[]
   username?: string
+  perSectionLimit?: number
   customStyles?: React.CSSProperties
 }

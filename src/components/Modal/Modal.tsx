@@ -10,7 +10,28 @@ const Modal = (props: ModalType) => {
     [`modal-box-${props.size}`]: props.size,
   })
 
-  const [list, setList] = useState<Group[] | []>(props.data || [])
+  const [list, setList] = useState<Group[] | []>(
+    props.data.map((group) => {
+      return {
+        sectionName: group.sectionName,
+        items: props.perSectionLimit
+          ? group.items.slice(0, props.perSectionLimit).map((item) => {
+              return {
+                icon: item.icon,
+                title: item.title,
+                url: item.url,
+              }
+            })
+          : group.items.map((item) => {
+              return {
+                icon: item.icon,
+                title: item.title,
+                url: item.url,
+              }
+            }),
+      }
+    }) || [],
+  )
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -20,8 +41,8 @@ const Modal = (props: ModalType) => {
   const initialState = { selectedIndex: 0 }
 
   const items = useMemo(() => {
-    return list && list.map((item) => item.items).flat()
-  }, [list])
+    return props.data && props.data.map((item) => item.items).flat()
+  }, [])
 
   const filterItems = (list: Group[], title: string): void => {
     const result: Group[] = []
@@ -171,6 +192,7 @@ const Modal = (props: ModalType) => {
                             className={classNames('modal-box-body-items', {
                               [`modal-box-body-items-${listItemIndex + 1}`]: true,
                             })}
+                            data-testid='modal-box-body-item'
                           >
                             <div className='modal-box-body-items-left'>
                               <div className='modal-box-body-items-icon'>{subItem.icon}</div>

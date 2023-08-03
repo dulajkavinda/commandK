@@ -8,6 +8,7 @@ export interface ModalType {
   username?: string
   isOpen: boolean
   data: Group[]
+  perSectionLimit?: number | undefined
   toggle: () => void
 }
 export interface State {

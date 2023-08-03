@@ -102,7 +102,7 @@ const Modal = (props: ModalType) => {
           onClick={() => {
             props.toggle()
             // enable scrolling when modal is closed
-            document.body.style.overflow = ''
+            document.body.style.overflow = 'initial'
           }}
         >
           <div data-testid='modal' onClick={(e) => e.stopPropagation()} id='modal-box' className={modalClass}>
@@ -174,7 +174,9 @@ const Modal = (props: ModalType) => {
                           >
                             <div className='modal-box-body-items-left'>
                               <div className='modal-box-body-items-icon'>{subItem.icon}</div>
-                              <div className='modal-box-body-items-title'>{subItem.title}</div>
+                              <div className='modal-box-body-items-title'>
+                                {subItem.title.length > 48 ? `${subItem.title.substring(0, 45)}...` : subItem.title}
+                              </div>
                             </div>
                             <div className='modal-box-body-items-goto'>
                               <span className='modal-box-body-items-goto-text-start'>Press</span>

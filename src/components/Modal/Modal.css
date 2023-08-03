@@ -114,9 +114,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   height: 20em;
-
-  scrollbar-color: red orange;
-  scrollbar-width: thin;
 }
 
 .modal-box-body-item {
@@ -183,7 +180,7 @@
 
 .modal-box-body-items-goto {
   display: flex;
-
+  align-items: center;
   font-size: 0.9em;
   font-weight: 600;
   color: #687585;
@@ -191,6 +188,8 @@
 
 .modal-box-body-items-goto-icon {
   margin-right: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .modal-box-body-items-goto-text-start {
@@ -250,15 +249,16 @@
     background-color: rgba(#1e262f, 0.6);
   }
 }
-*::-webkit-scrollbar-thumb {
+
+.modal-box-body::-webkit-scrollbar-thumb {
   background-color: #5d646b;
   border-radius: 20px;
 }
 
-*::-webkit-scrollbar {
+.modal-box-body::-webkit-scrollbar {
   width: 8px;
 }
 
-*::-webkit-scrollbar-track {
+.modal-box-body::-webkit-scrollbar-track {
   background: #1e262f;
 }

@@ -128,6 +128,7 @@ const list: Group[] = [
 | buttonSize                   | size of the button                                        | `small` `medium` `large`     | `medium`         | 
 | modalSize                    | size of the modal                                         | `small` `medium` `large`     | `medium`         |
 | username                     | name of the search modal                                  | string                       | home             |
+| perSectionLimit              | limit numner of items in a section                        | number                       | -                |
 | customStyles                 | the style of the component                                | Object                       | {}               |
 
 ### Modal
@@ -138,6 +139,7 @@ const list: Group[] = [
 | isOpen                       | to open and close the modal                               | boolean                      | `false`          |                                                                                   
 | size                         | size of the modal                                         | `small` `medium` `large`     | `medium`         |
 | username                     | name of the search modal                                  | string                       | home             |
+| perSectionLimit              | limit numner of items in a section                        | number                       | -                |
 | toggle                       | close the modal                                           | Function                     | () => null       |
 
 ### Button

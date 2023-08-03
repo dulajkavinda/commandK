@@ -46,6 +46,7 @@ const CommandK = (props: CommandKProps) => {
           size={props.modalSize}
           isOpen={isOpen}
           username={props.username}
+          perSectionLimit={props.perSectionLimit}
           toggle={() => setIsOpen(false)}
         />
       )}
@@ -64,6 +65,7 @@ CommandK.defaultProps = {
   buttonSize: 'medium' as ButtonSize,
   username: 'home',
   customStyles: {},
+  perSectionLimit: undefined,
 }
 
 export default CommandK

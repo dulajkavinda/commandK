@@ -10,6 +10,12 @@ const Modal = (props: ModalType) => {
     [`modal-box-${props.size}`]: props.size,
   })
 
+  const items = useMemo(() => {
+    return props.data && props.data.map((item) => item.items).flat()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const [resultCount, setResultCount] = useState<number>(items.length)
   const [list, setList] = useState<Group[] | []>(
     props.data.map((group) => {
       return {
@@ -33,6 +39,10 @@ const Modal = (props: ModalType) => {
     }) || [],
   )
 
+  const filteredItemsCount = useMemo(() => {
+    return list.map((item) => item.items).flat().length
+  }, [list])
+
   const inputRef = useRef<HTMLInputElement>(null)
 
   const arrowUpPressed = useKeyPress('ArrowUp')
@@ -40,32 +50,26 @@ const Modal = (props: ModalType) => {
 
   const initialState = { selectedIndex: 0 }
 
-  const items = useMemo(() => {
-    return props.data && props.data.map((item) => item.items).flat()
-  }, [])
-
-  const filterItems = (list: Group[], title: string): void => {
-    const result: Group[] = []
-
-    list.forEach((obj) => {
-      const items = obj.items.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
-
-      if (items.length > 0) {
-        result.push({
-          ...obj,
-          items,
-        })
-      }
-    })
-
-    setList(result)
-  }
-
   const reducer = (state: State, action: Action): State => {
     switch (action.type) {
       case 'arrowUp': {
+        const button = document.getElementsByClassName(
+          `modal-box-body-items-${state.selectedIndex - 2}`,
+        )[0] as HTMLElement
+
+        if (button) {
+          button.focus()
+        }
+
+        // focusing on input if up arrow is pressed on first item
+        if (state.selectedIndex === 1) {
+          if (inputRef.current) {
+            inputRef.current.focus()
+          }
+        }
+
         return {
-          selectedIndex: state.selectedIndex,
+          selectedIndex: state.selectedIndex !== 0 ? state.selectedIndex - 1 : 0,
         }
       }
       case 'arrowDown': {
@@ -76,7 +80,7 @@ const Modal = (props: ModalType) => {
         }
 
         return {
-          selectedIndex: state.selectedIndex !== items.length - 1 ? state.selectedIndex + 1 : 0,
+          selectedIndex: state.selectedIndex !== filteredItemsCount - 1 ? state.selectedIndex + 1 : 0,
         }
       }
       case 'select':
@@ -114,6 +118,28 @@ const Modal = (props: ModalType) => {
 
   let trackItemindex = -1
 
+  const filterItems = (list: Group[], title: string): void => {
+    const result: Group[] = []
+
+    list.forEach((obj) => {
+      const items = obj.items.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
+
+      if (items.length > 0) {
+        result.push({
+          ...obj,
+          items,
+        })
+      }
+    })
+
+    const resultsCount = result.reduce((acc: number, curr: Group) => {
+      return acc + curr.items.length
+    }, 0)
+
+    setResultCount(resultsCount)
+    setList(result)
+  }
+
   return (
     <>
       {props.isOpen && (
@@ -144,26 +170,31 @@ const Modal = (props: ModalType) => {
                     type='text'
                     placeholder='Search or jump to'
                     onKeyDown={(e) => {
-                      if (e.key === 'ArrowDown') {
-                        console.log('arrow down')
+                      if (e.key === 'Enter') {
+                        dispatch({ type: 'arrowDown' })
                       }
                     }}
                   />
                 </div>
                 <div className='modal-box-header-search-right'>
-                  <div className='modal-box-header-search-right-nav'>
-                    {props.size !== 'small' && (
+                  {props.size !== 'small' ? (
+                    <div className='modal-box-header-search-right-nav'>
                       <span data-testid='press-text' className='modal-box-header-search-right-text-start'>
                         Press
                       </span>
-                    )}
+                      <div className='modal-box-header-search-right-icon'>
+                        <DownArrowIcon />
+                      </div>
+                      <span className='modal-box-header-search-right-text'>to Navigate</span>
+                    </div>
+                  ) : (
                     <div className='modal-box-header-search-right-icon'>
                       <DownArrowIcon />
                     </div>
-                    <span className='modal-box-header-search-right-text'>to Navigate</span>
-                  </div>
-                  <div className='modal-box-header-search-results'>
-                    {items.length === 1 ? `${items.length} Result` : `${items.length} Results`}
+                  )}
+
+                  <div data-testid='noresults' className='modal-box-header-search-results'>
+                    {resultCount === 1 ? `${resultCount} Result` : `${resultCount} Results`}
                   </div>
                 </div>
               </div>

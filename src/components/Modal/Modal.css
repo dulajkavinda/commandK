@@ -1,3 +1,23 @@
+@keyframes fadein {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bg-color {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(#1e262f, 0.6);
+  }
+}
+
 .modal-overlay {
   z-index: 99999;
   position: fixed;
@@ -140,6 +160,13 @@
   align-items: center;
   color: #d3d3d3;
   background-color: #18222c;
+  opacity: 0.7;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.15, 0.44, 0.47, 0.99);
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.15, 0.44, 0.47, 0.99);
 }
 
 .modal-box-body-items {
@@ -159,9 +186,15 @@
 }
 
 .modal-box-body-items:hover {
-  opacity: 0.8;
+  opacity: 0.7;
   border: 1px dashed #687585;
-  animation-duration: 1s;
+
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.15, 0.44, 0.47, 0.99);
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.15, 0.44, 0.47, 0.99);
 }
 
 .modal-box-body-items-title {
@@ -231,26 +264,6 @@
   margin-right: 7px;
 }
 
-@keyframes fadein {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes bg-color {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: rgba(#1e262f, 0.6);
-  }
-}
-
 .modal-box-body::-webkit-scrollbar-thumb {
   background-color: #5d646b;
   border-radius: 20px;
@@ -262,4 +275,32 @@
 
 .modal-box-body::-webkit-scrollbar-track {
   background: #1e262f;
+}
+
+/* mobile media queries */
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    align-items: end;
+  }
+
+  .modal-box-medium {
+    width: 100%;
+  }
+
+  .modal-box-small {
+    width: 100%;
+  }
+
+  .modal-box-large {
+    width: 100%;
+  }
+
+  .modal-box-header-search-right-nav {
+    display: none;
+  }
+
+  .modal-box-body-items-goto {
+    display: none;
+  }
 }

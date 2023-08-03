@@ -163,4 +163,24 @@ describe('components/Modal', () => {
 
     expect(screen.getAllByTestId('modal-box-body-item')).toHaveLength(3)
   })
+
+  it('display the correct number of results', () => {
+    render(<Modal size='medium' data={list} isOpen toggle={() => null} />)
+
+    const noOfItem = list.map((item) => item.items).flat()
+
+    expect(screen.getByTestId('noresults')).toHaveTextContent(`${noOfItem.length} Results`)
+  })
+
+  it('display the correct number of results based on search', () => {
+    render(<Modal size='small' data={list} isOpen toggle={() => null} />)
+
+    const input = screen.getByTestId('search-input')
+
+    input.focus()
+    fireEvent.change(input, { target: { value: 'random' } })
+    input.blur()
+
+    expect(screen.getByTestId('noresults')).toHaveTextContent('1 Result')
+  })
 })

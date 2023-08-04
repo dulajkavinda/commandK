@@ -6,6 +6,7 @@ import { ButtonSize, ButtonType } from './Button.types'
 const Button = (props: ButtonType) => {
   const btnClass = classNames('search-bar', {
     [`search-bar-${props.size}`]: props.size,
+    'search-bar-hide': props.hide,
   })
 
   const iconClass = classNames('search-bar-icon', {
@@ -47,6 +48,7 @@ const Button = (props: ButtonType) => {
 Button.defaultProps = {
   keyLetter: 'K',
   size: 'medium' as ButtonSize,
+  hide: false,
 }
 
 export default Button

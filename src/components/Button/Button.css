@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.search-bar-hide {
+  display: none;
+}
+
 .search-bar:focus {
   border: 1px dashed #7e8c9a;
 }

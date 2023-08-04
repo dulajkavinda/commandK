@@ -8,5 +8,6 @@ export interface CommandKProps {
   data: Group[]
   username?: string
   perSectionLimit?: number
+  hideButton?: boolean
   customStyles?: React.CSSProperties
 }

@@ -101,3 +101,13 @@ export const Large: Story = {
     data: listA,
   },
 }
+
+export const HiddenMedium: Story = {
+  args: {
+    keyLetter: 'K',
+    modalSize: 'medium',
+    buttonSize: 'medium',
+    data: listA,
+    hideButton: true,
+  },
+}

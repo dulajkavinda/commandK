@@ -3,6 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import Modal from '../Modal'
 import { Group } from '../Modal.types'
+import { DownArrowIcon } from '../utils'
 
 const list: Group[] = [
   {
@@ -182,5 +183,41 @@ describe('components/Modal', () => {
     input.blur()
 
     expect(screen.getByTestId('noresults')).toHaveTextContent('1 Result')
+  })
+
+  it('render a react element passed as an icon', () => {
+    const listWithReactElement: Group[] = [
+      {
+        sectionName: 'Repositories',
+        items: [
+          {
+            icon: <DownArrowIcon size={14} />,
+            title: 'How to make a good repo',
+            url: '/repo',
+          },
+          {
+            icon: '🚀',
+            title: 'This is another one to check',
+            url: 'https://google.lk',
+          },
+          {
+            icon: '🗂',
+            title: 'How to make a good repo',
+            url: '/repo',
+          },
+          {
+            icon: '🚀',
+            title: 'This is another one to check',
+            url: 'https://google.lk',
+          },
+        ],
+      },
+    ]
+
+    render(<Modal data={listWithReactElement} isOpen toggle={() => null} />)
+
+    const icon = screen.getAllByTestId('modal-box-body-items-icon')[0]
+
+    expect(icon).toContainElement(screen.getByTestId('down-arrow-icon-14'))
   })
 })

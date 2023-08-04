@@ -226,7 +226,9 @@ const Modal = (props: ModalType) => {
                             data-testid='modal-box-body-item'
                           >
                             <div className='modal-box-body-items-left'>
-                              <div className='modal-box-body-items-icon'>{subItem.icon}</div>
+                              <div data-testid='modal-box-body-items-icon' className='modal-box-body-items-icon'>
+                                {subItem.icon}
+                              </div>
                               <div className='modal-box-body-items-title'>
                                 {subItem.title.length > 48 ? `${subItem.title.substring(0, 45)}...` : subItem.title}
                               </div>

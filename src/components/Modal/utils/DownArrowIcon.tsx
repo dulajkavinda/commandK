@@ -6,7 +6,13 @@ interface DownArrowIconAttributes {
 
 const DownArrowIcon: React.FC<DownArrowIconAttributes> = ({ size = 18 }) => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width={size} height={size} viewBox='0 0 14 14'>
+    <svg
+      data-testid={`down-arrow-icon-${size}`}
+      xmlns='http://www.w3.org/2000/svg'
+      width={size}
+      height={size}
+      viewBox='0 0 14 14'
+    >
       <g transform='rotate(180 7 7)'>
         <g fill='none' stroke='#707680' strokeLinecap='round' strokeLinejoin='round'>
           <rect width='13' height='13' x='.5' y='.5' rx='1' />

@@ -1,5 +1,7 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Modal from './Modal'
+import { DownArrowIcon } from './utils'
 import { Group } from './Modal.types'
 
 const meta = {
@@ -21,7 +23,7 @@ const listA: Group[] = [
     sectionName: 'Repositories',
     items: [
       {
-        icon: '🗂',
+        icon: <DownArrowIcon size={14} />,
         title: 'How to make a good repo',
         url: '/repo',
       },

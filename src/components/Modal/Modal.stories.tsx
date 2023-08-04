@@ -23,7 +23,7 @@ const listA: Group[] = [
     sectionName: 'Repositories',
     items: [
       {
-        icon: <DownArrowIcon size={14} />,
+        icon: <DownArrowIcon size={16} />,
         title: 'How to make a good repo',
         url: '/repo',
       },

@@ -55,6 +55,7 @@ const CommandK = (props: CommandKProps) => {
         size={props.buttonSize}
         keyLetter={props.keyLetter}
         onClick={() => setIsOpen(true)}
+        hide={props.hideButton}
       />
     </div>
   )
@@ -66,6 +67,7 @@ CommandK.defaultProps = {
   username: 'home',
   customStyles: {},
   perSectionLimit: undefined,
+  hideButton: false,
 }
 
 export default CommandK

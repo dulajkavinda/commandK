@@ -113,4 +113,11 @@ describe('components/CommandK', () => {
     const btn = screen.getByTestId('search-input')
     expect(btn).toHaveFocus()
   })
+
+  it('hide the button if the hideButton is true', () => {
+    render(<CommandK data={list} />)
+    const btn = screen.getByTestId('search-button')
+
+    expect(btn).not.toHaveClass('search-bar-hide')
+  })
 })

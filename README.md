@@ -1,5 +1,10 @@
 <div align="center">
   <h1>CommandK</h1>
+
+
+ [video](https://github.com/dulajkavinda/commandK/assets/47476282/89afda0b-91c4-4a37-a58e-333fdfe47a62)
+
+
   <p>A compact React component and npm package enabling quick website search through a modal, triggered by pressing Command + K</p>
   <a href="https://www.npmjs.com/package/commandk">
    <img src="https://img.shields.io/npm/dm/commandk.svg?color=%235599ff&style=for-the-badge" alt="npm Downloads per Month">

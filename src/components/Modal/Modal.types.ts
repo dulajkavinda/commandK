@@ -18,7 +18,7 @@ export interface State {
 export type Action = { type: 'arrowUp' } | { type: 'arrowDown' } | { type: 'select'; payload: number }
 
 export interface Item {
-  icon: string
+  icon: string | ReactNode
   title: string
   url?: string
 }

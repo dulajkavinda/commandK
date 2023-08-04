@@ -132,6 +132,7 @@ const list: Group[] = [
 | modalSize                    | size of the modal                                         | `small` `medium` `large`     | `medium`         |
 | username                     | name of the search modal                                  | string                       | home             |
 | perSectionLimit              | limit numner of items in a section                        | number                       | -                |
+| hideButton                   | hide the button                                           | boolean                      | `false`          |
 | customStyles                 | the style of the component                                | Object                       | {}               |
 
 ### Modal
@@ -152,6 +153,7 @@ const list: Group[] = [
 | keyLetter                    | key that needs be appear on the button                    | string                       | `K`              |                                                                                       
 | size                         | size of the modal                                         | `small` `medium` `large`     | `medium`         |
 | styles                       | the style of the component                                | Object                       | {}               |
+| hide                         | hide the button                                           | boolean                      | `false`          |
 | toggle                       | open  the modal                                           | Function                     | () => null       |
 
 ## Local Development

@@ -1,7 +1,7 @@
 <div align="center">
   <h1>CommandK</h1>
 
-https://github.com/dulajkavinda/commandK/assets/47476282/6ff18e4a-8db7-47a7-9f64-1c068fb50f01
+https://github.com/dulajkavinda/commandK/assets/47476282/50fdeb37-bb72-49a7-9869-4be8b3b0c161
 
   <p>A compact React component and npm package enabling quick website search through a modal, triggered by pressing Command + K</p>
   <a href="https://www.npmjs.com/package/commandk">
